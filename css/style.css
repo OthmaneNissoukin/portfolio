@@ -276,7 +276,18 @@ div.skills-progress div.skill-row {
 
 div.skills-progress div.skill-row p {
     color: #fff;
-    width: 100px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+div.skills-progress div.skill-row p:first-of-type {
+    width: 70px;
+}
+
+@media (min-width: 600px) {
+    div.skills-progress div.skill-row p {
+        width: 100px;
+    }
 }
 
 div.skills-progress div.skill-row div.skill-bar {
@@ -302,7 +313,7 @@ section.portfolio nav {
 
 section.portfolio nav ul li{
     display: inline-block;
-    margin: 0px 5px;
+    margin: 5px 5px;
 
 }
 
