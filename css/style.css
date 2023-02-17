@@ -9,17 +9,28 @@
     text-decoration: none;
 }
 
+:root {
+    --primary-color: #141414;
+    --secondary-color: #0acee1;
+    --blue-hover: #0698a5;
+    --white-color: #fff;
+    --gray-color: #3b3c3b;
+    --title-color: crimson;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #141414;
+    background-color: var(--primary-color);
+    overflow-x: hidden;
 }
 
 header {
-    color: #fff;
+    color: var(--white-color);
     padding: 16px 0px;
+    position: relative;
 }
 
 .container {
@@ -35,7 +46,7 @@ header div {
 }
 
 header h3 {
-    color: #0acee1;
+    color: var(--secondary-color);
 }
 
 header nav {
@@ -45,21 +56,51 @@ header nav {
 header nav ul li {
     list-style: none;
     padding: 2px 0px;
-    margin-right: 8px;
+    margin-right: 15px;
     display: inline-block;
     font-size: 18px;
 }
 
 header nav ul li a {
-    color: #fff;
+    color: var(--white-color);
     transition: color 300ms linear;
 }
 
 header nav ul li:first-child > a,
 header nav ul li a:hover {
-    color: #0acee1;
+    color: var(--secondary-color);
     /* font-weight: 700; */
-    border-bottom: 2px solid #0acee1;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+header nav.menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0px;
+    background-color: #141414;
+    text-align: center;
+}
+
+header nav.menu::before {
+    content: "";
+    display: block;
+
+    border-width: 20px 20px 20px 20px;
+    border-color: var(--secondary-color) transparent transparent transparent;
+    border-style: solid;
+
+    position: absolute;
+    top: -10px;
+    right: 25px;
+}
+
+header nav.menu ul li {
+    display: block;
+    padding: 12px 20px;
 }
 
 header button {
@@ -72,7 +113,7 @@ header button {
     margin: 0;
     padding: 0;
     border-radius: 4px;
-    border: 2px solid #3b3c3b;
+    border: 2px solid var(--gray-color);
     background-color: transparent;
 }
 
@@ -80,7 +121,7 @@ header button span {
     display: inline-block;
     height: 2px;
     width: 80%;
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 @media (min-width: 720px) {
@@ -107,21 +148,21 @@ section.landing .container {
 }
 
 section.landing .container h2 {
-    text-decoration: underline wavy 2px crimson;
+    text-decoration: underline wavy 2px var(--title-color);
     text-underline-offset: 3px;
-    color: #0acee1;
+    color: var(--secondary-color);
     font-size: 32px;
 }
 
 section.landing .container h3 {
     font-size: 20px;
-    color: white;
+    color: var(--white-color);
     margin: 10px 0px;
 }
 
 section.landing .container p {
     font-size: 18px;
-    color: white;
+    color: var(--white-color);
 }
 
 button,
@@ -136,15 +177,15 @@ section.landing a {
 }
 
 section.landing a:first-of-type {
-    background-color: #0acee1;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
     font-weight: 700;
     margin-right: 8px;
 }
 
 section.landing a:last-of-type {
-    color: #0acee1;
-    border: 2px solid #0acee1;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
     background-color: transparent;
 }
 
@@ -159,7 +200,7 @@ section {
 
 main h2 {
     /* TODO: Set Underline With Before */
-    color: crimson;
+    color: var(--title-color);
     text-align: center;
     font-size: 24px;
     margin: 30px 0px
@@ -190,6 +231,7 @@ section.skills {
     width: 45px;
     top: 0;
     background-color: #141414b9;
+    backdrop-filter: blur(2px);
     z-index: 10;
 }
 
@@ -212,7 +254,7 @@ section.skills {
     gap: 8px;
     align-items: center;
     padding: 8px 16px;
-    background-color: #3b3c3b;
+    background-color: var(--gray-color);
     border-radius: 33px;
 }
 
@@ -225,7 +267,7 @@ section.skills {
     display: inline-block;
     padding-right: 8px;
     font-size: 18px;
-    color: #fff;
+    color: var(--white-color);
     font-weight: 700;
 }
 
@@ -275,7 +317,7 @@ div.skills-progress div.skill-row {
 }
 
 div.skills-progress div.skill-row p {
-    color: #fff;
+    color: var(--white-color);
     flex-grow: 0;
     flex-shrink: 1;
 }
@@ -294,11 +336,11 @@ div.skills-progress div.skill-row div.skill-bar {
     max-width: 800px;
     flex-grow: 1;
     height: 15px;
-    background-color: #3b3c3b;
+    background-color: var(--gray-color);
 }
 
 div.skills-progress div.skill-row div.skill-bar span {
-    background-color: #0acee1;
+    background-color: var(--secondary-color);
     display: block;
     height: 100%;
     width: 0;
@@ -306,6 +348,12 @@ div.skills-progress div.skill-row div.skill-bar span {
 }
 
 /* Portfolio */
+section.portfolio {
+    opacity: 0;
+    transform: translateX(-400px) scale(.5, .5);
+    transition: all 1s linear;
+}
+
 section.portfolio nav {
     text-align: center;
     margin: 20px 0px;
@@ -314,22 +362,21 @@ section.portfolio nav {
 section.portfolio nav ul li{
     display: inline-block;
     margin: 5px 5px;
-
 }
 
 section.portfolio nav ul li button {
-    color: #fff;
+    color: var(--white-color);
     font-size: 18px;
     margin: 0px;
     padding: 8px 16px;
-    background-color: #3b3c3b;
+    background-color: var(--gray-color);
     border-radius: 33px;
     transition: all 250ms linear;
 }
 
 section.portfolio nav ul li button:hover,
 section.portfolio nav ul li button.active {
-    background-color: #0acee1;
+    background-color: var(--secondary-color);
 }
 
 /* Portfolio Gallery */
@@ -338,14 +385,13 @@ section.portfolio div.projects-container {
     grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
     gap: 20px;
     justify-content: center;
-
 }
 
 section.portfolio div.projects-container article {
     height: 200px;
     overflow: hidden;
     position: relative;
-    transition: all 250ms linear;
+    transition: all 2s linear;
 }
 
 section.portfolio div.projects-container article img {
@@ -372,11 +418,11 @@ section.portfolio div.projects-container article a:hover {
 
 section.portfolio div.projects-container article a span {
     display: inline-block;
-    border: 2px solid #0acee1;
+    border: 2px solid var(--secondary-color);
     padding: 12px 16px;
-    color: #0acee1;
+    color: var(--secondary-color);
     border-radius: 16px;
-    background-color: #ffffff;
+    background-color: var(--white-color);
     font-weight: 700;
     opacity: 0;
     transition: all 250ms linear;
@@ -389,18 +435,24 @@ section.portfolio div.projects-container article a:hover > span {
 section.portfolio button {
     display: block;
     margin: 50px auto;
-    background-color: #0acee1;
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
     border-radius: 33px;
     padding: 12px 24px;
     transition: all 250ms linear;
 }
 
 section.portfolio button:hover {
-    background-color: #0698a5;
+    background-color: var(--blue-hover);
 }
 
 /* About*/
+section.about {
+    opacity: 0;
+    transform: translateY(300px) scale(.5, .5);
+    transition: all 1s linear;
+}
+
 section.about aside {
     text-align: center;
 }
@@ -411,12 +463,12 @@ section.about aside img {
 
 section.about aside h4 {
     font-size: 20px;
-    color: #0acee1;
+    color: var(--secondary-color);
     margin: 10px 0px;
 }
 
 section.about aside p:first-of-type {
-    color: #fff;
+    color: var(--white-color);
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0px;
@@ -429,7 +481,7 @@ section.about aside p:last-of-type {
 }
 
 section.about aside ul:first-of-type li{
-    color: #fff;
+    color: var(--white-color);
     margin: 10px 0px;
 }
 
@@ -439,7 +491,7 @@ section.about aside ul:first-of-type li span {
 }
 
 section.about aside ul:last-of-type li{
-    color: #fff;
+    color: var(--white-color);
     margin: 10px 0px;
     display: inline-block;
     width: 30px;
@@ -465,7 +517,7 @@ section.about aside ul:last-of-type li{
 }
 
 section.about aside ul:last-of-type li a {
-    color: #fff;
+    color: var(--white-color);
     font-size: 18px;
 }
 
@@ -488,17 +540,23 @@ li#codepen:hover {
 a#download {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #0acee1;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
     border-radius: 33px;
     transition: all 250ms linear;
 }
 
 a#download:hover {
-    background-color: #0698a5;
+    background-color: var(--blue-hover);
 }
 
 /* Contact Me */
+/* section.contact {
+    opacity: 0;
+    transform: translateX(400px) scale(.5, .5);
+    transition: all 1.5s ease-out;
+} */
+
 form {
     width: 100%;
     max-width: 700px;
@@ -520,21 +578,21 @@ form textarea {
     padding: 12px 12px;
     border: none;
     outline: none;
-    color: #fff;
+    color: var(--white-color);
     font-size: 18px;
     width: 100%;
     resize: vertical;
-    caret-color: crimson;
+    caret-color: var(--title-color);
 }
 
 form input[value="Send"] {
-    background-color: #0acee1;
+    background-color: var(--secondary-color);
     transition: all 250ms linear;
     cursor: pointer;
 }
 
 form input[value="Send"]:hover {
-    background-color: #0698a5;
+    background-color: var(--blue-hover);
 }
 
 @media (min-width: 600px) {
@@ -552,7 +610,7 @@ footer {
 footer p {
     padding: 12px;
     text-align: center;
-    color: #fff;
+    color: var(--white-color);
     font-style: italic;
     font-weight: 300;
 }

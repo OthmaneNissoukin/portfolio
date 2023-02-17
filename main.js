@@ -66,3 +66,28 @@ addEventListener("click", function(evt) {
         })
     }
 })
+
+// Burger Menu
+let navBar = document.querySelector("nav")
+
+function showMenu() {
+    navBar.classList.toggle("menu")
+}
+
+window.onresize = () => window.innerWidth >= 720 ? navBar.classList.remove("menu") : ""
+
+// Load Content
+let portfolioSection = document.querySelector(".portfolio")
+let aboutSection = document.querySelector(".about")
+let contactSection = document.querySelector(".contact")
+
+function loadContent(ele) {
+    console.log(window.scrollY)
+    if (window.scrollY >= ele.offsetTop - 400) {
+        ele.style.cssText = "opacity: 1; transform: translateX(0) scale(1, 1)"
+    }
+}
+
+window.addEventListener("scroll", () => loadContent(portfolioSection))
+window.addEventListener("scroll", () => loadContent(aboutSection))
+// window.addEventListener("scroll", () => loadContent(contactSection))
