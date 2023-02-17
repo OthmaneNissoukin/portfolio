@@ -272,8 +272,6 @@ section.skills {
     font-weight: 700;
 }
 
-
-
 @keyframes marquee {
     from {
         transform: translateX(0px);
