@@ -203,7 +203,8 @@ main h2 {
     color: var(--title-color);
     text-align: center;
     font-size: 24px;
-    margin: 30px 0px
+    margin: 30px 0px;
+    text-transform: uppercase;
 }
 
 /* Skills Section */
@@ -551,11 +552,11 @@ a#download:hover {
 }
 
 /* Contact Me */
-/* section.contact {
+section.contact {
     opacity: 0;
-    transform: translateX(400px) scale(.5, .5);
+    transform: translateX(0px) scale(.5, .5);
     transition: all 1.5s ease-out;
-} */
+}
 
 form {
     width: 100%;

@@ -90,4 +90,4 @@ function loadContent(ele) {
 
 window.addEventListener("scroll", () => loadContent(portfolioSection))
 window.addEventListener("scroll", () => loadContent(aboutSection))
-// window.addEventListener("scroll", () => loadContent(contactSection))
+window.addEventListener("scroll", () => loadContent(contactSection))
