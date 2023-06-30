@@ -1,0 +1,67 @@
+// Hero Section
+
+@use "utils/variables" as *;
+@use "utils/mixins" as *;
+
+section.landing {
+    height: 90vh;
+    background: {
+        image: url("../images/landing.jpg");
+        size: cover;
+    };
+
+    .container {
+        @include flex_centering(false, true);
+        height: 100%;
+
+        h2 {
+            // TODO: Remove The Red Underline
+            text-decoration: underline wavy 2px $title-color;
+            text-underline-offset: 3px;
+            color: $secondary-color;
+            font-size: 32px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: $white-color;
+            margin: 10px 0px;
+        }
+
+        p {
+            font-size: 18px;
+            color: $white-color;
+        }
+
+    }
+    
+    a {
+        @include custom_button;
+
+        &:first-of-type {
+            background-color: $secondary-color;
+            color: $white-color;
+            font-weight: 700;
+            margin-right: 8px;
+
+            &:hover {
+                box-shadow: 0px 0px 5px 2px $secondary-color;
+            }
+        }
+
+        &:last-of-type {
+            color: $secondary-color;
+            border: 2px solid $secondary-color;
+            background-color: transparent;
+
+            &:hover {
+                background-color: $white-color;
+                border-color: transparent;
+            }
+        }
+    }
+
+    div.anchors {
+        min-height: 80px;
+    }
+}

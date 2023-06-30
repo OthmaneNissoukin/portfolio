@@ -1,0 +1,32 @@
+
+@mixin global_reset {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+@mixin flex_centering($horizontal, $vertical, $gap: 0px) {
+    display: flex;
+    gap: $gap;
+
+    @if $horizontal == true {
+        justify-content: center;
+    }
+
+    @if $vertical == true {
+        align-items: center;
+    }
+}
+
+@mixin custom_button {
+    display: inline-block;
+    padding: 8px 16px;
+    outline: none;
+    border: none;
+    margin-top: 16px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 250ms linear;
+}

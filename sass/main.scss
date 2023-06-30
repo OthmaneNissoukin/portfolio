@@ -1,0 +1,56 @@
+
+@use "sass/header";
+@use "sass/hero";
+@use "sass/skills_section";
+@use "sass/skills_level";
+@use "sass/portfolio";
+@use "sass/about";
+@use "sass/contact";
+@use "sass/footer";
+
+@use "sass/utils/mixins" as * ;
+@use "sass/utils/variables" as * ;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.cdnfonts.com/css/lemonmilk');
+
+* {
+    @include global_reset;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $primary_color;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+main {
+    padding: 20px 0px;
+
+    h2 {
+        color: $title-color;
+        text-align: center;
+        font-size: 24px;
+        margin: 30px 0px;
+        text-transform: uppercase;
+        font-family: 'Lemon/Milk', sans-serif;
+    }
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+button {
+    @include custom_button;
+}

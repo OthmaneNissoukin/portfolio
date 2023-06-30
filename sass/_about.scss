@@ -1,0 +1,101 @@
+// About Section
+
+@use "utils/variables" as *;
+@use "utils/mixins" as *;
+
+section.about {
+    opacity: 0;
+    transform: translateY(300px) scale(.5, .5);
+    transition: all 1s linear;
+
+    aside {
+        text-align: center;
+
+        img {
+            width: 240px;
+            margin: 20px 0px;
+        }
+
+        h4 {
+            font-size: 20px;
+            color: $secondary-color;
+            margin: 10px 0px;
+        }
+
+        p {
+
+            &:first-of-type {
+                color: $white-color;
+                font-size: 18px;
+                font-weight: bold;
+                margin: 10px 0px;
+            }
+
+            &:last-of-type {
+                color: #5c5959;
+                margin: 10px 0px;
+                text-align: justify;
+            }
+        }
+
+        ul {
+            &:first-of-type li {
+                color: $white-color;
+                margin: 10px 0px;
+
+                span {
+                    font-weight: 700;
+                    color: #979797;
+                }
+            }
+
+            &:last-of-type li {
+                color: $white-color;
+                margin: 10px 0px;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+                transition: all 250ms linear;
+
+                a {
+                    color: $white-color;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        @media (min-width: 600px) {
+            @include flex_centering(true, true);
+            text-align: start;
+
+            div {
+                padding: 20px;
+                max-width: 600px;
+            }
+        }
+    }
+
+    $acounts: ("github": #442db8a4, "linkedin": #0a67e183, "twitter": #0acfe183, "codepen": #d9f00f8e);
+
+    @each $account, $color in $acounts {
+        li##{$account}:hover {
+            background-color: $color;
+        }
+    }
+
+    a#download {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: $secondary-color;
+        color: $white-color;
+        border-radius: 33px;
+        transition: all 250ms linear;
+
+        &hover {
+            background-color: $blue-hover;
+        }
+    }
+}
